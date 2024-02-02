@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include "dactyl_manuform.dtsi"
+
+&default_transform {
+    col-offset = <6>;
+};
+
+&kscan0 {
+    // cols from Q7 (hardware pin 7) to Q1 (hardware pin 1) lead to cols from right (ß on the keyboard) to left (6 on the keyboard)
+    // this setting might be improved by mirroring the keys by either by changing order of the connected pins (hardware) or the col-gpios.
+    // now the letter A corresponds to the letter J.
+    col-gpios
+        = <&shifter 7 GPIO_ACTIVE_HIGH>
+        , <&shifter 6 GPIO_ACTIVE_HIGH>
+        , <&shifter 5 GPIO_ACTIVE_HIGH>
+        , <&shifter 4 GPIO_ACTIVE_HIGH>
+        , <&shifter 3 GPIO_ACTIVE_HIGH>
+        , <&shifter 2 GPIO_ACTIVE_HIGH>
+        ;
+};

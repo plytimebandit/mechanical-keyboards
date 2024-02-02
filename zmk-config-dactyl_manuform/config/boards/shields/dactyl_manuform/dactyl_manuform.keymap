@@ -1,0 +1,156 @@
+/*
+ * Copyright (c) 2022 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+#define ______ &trans
+
+#define DEFAULT 0
+#define DFT_WIN 1
+#define DFT_LNX 2
+#define DFT_MAC 3
+#define LOWER   4
+#define RAISE   5
+#define META    6
+#define BLUE    7
+
+/ {
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <LOWER RAISE>;
+            then-layer = <META>;
+        };
+    };
+
+    #include "german_lang.dtsi"
+    #include "umlauts.dtsi"
+
+    behaviors {
+        td0: tap_dance_tilde_bslash {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_0";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp DE_TILD>, <&kp DE_BSLS>;
+        };
+        td1: tap_dance_plus_pipe {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_1";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp DE_PLUS>, <&kp DE_PIPE>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            bindings = <
+                &kp ESC      &kp N1      &kp N2      &kp N3      &kp N4      &kp N5                                      &kp N6          &kp N7       &kp N8      &kp N9        &kp N0      &kp DE_SS
+                &kp TAB      &kp Q       &kp W       &kp E       &kp R       &kp T                                       &kp DE_Z        &kp U        &kp I       &kp O         &kp P       &kp DE_UDIA
+                &kp LSHIFT   &kp A       &kp S       &kp D       &kp F       &kp G                                       &kp H           &kp J        &kp K       &kp L         &kp DE_ODIA &kp DE_ADIA
+                &kp LCTRL    &kp DE_Y    &kp X       &kp C       &kp V       &kp B                                       &kp N           &kp M        &kp COMMA   &kp DOT       &kp DE_MINS &kp RSHIFT
+                                         &kp NUBS    &kp DE_ACUT                                                                                      &td1        &kp DE_HASH
+                                                                 &mo RAISE   &kp SPACE                                   &kp ENTER       &mo LOWER
+                                                                             &kp LA(TAB) &mo BLUE            &kp BSPC    &td0
+                                                                             &kp LALT    &kp LC(LA(RIGHT))   &kp LGUI    &kp RALT
+            >;
+        };
+
+        default_win_layer {
+            bindings = <
+                ______       &uuml_win   ______      ______      ______      ______                                      ______       ______      ______      ______      ______      ______
+                ______       ______      ______      ______      ______      ______                                      ______       ______      ______      ______      ______      ______
+                ______       ______      ______      ______      ______      ______                                      ______       ______      ______      ______      ______      ______
+                ______       ______      ______      ______      ______      ______                                      ______       ______      ______      ______      ______      ______
+                                         ______      ______                                                                                       ______      ______
+                                                                 ______       ______                                     ______       ______
+                                                                              ______       ______           ______       ______
+                                                                              ______       ______           ______       ______
+            >;
+        };
+        default_linux_layer {
+            bindings = <
+                ______       &uuml_lnx   ______      ______      ______      ______                                      ______       ______      ______      ______      ______      ______
+                ______       ______      ______      ______      ______      ______                                      ______       ______      ______      ______      ______      ______
+                ______       ______      ______      ______      ______      ______                                      ______       ______      ______      ______      ______      ______
+                ______       ______      ______      ______      ______      ______                                      ______       ______      ______      ______      ______      ______
+                                         ______      ______                                                                                       ______      ______
+                                                                 ______      ______                                      ______       ______
+                                                                             ______       ______            ______       ______
+                                                                             ______       ______            ______       ______
+            >;
+        };
+        default_macos_layer {
+            bindings = <
+                ______       &uuml_mac   ______      ______      ______      ______                                      ______       ______      ______      ______      ______      ______
+                ______       ______      ______      ______      ______      ______                                      ______       ______      ______      ______      ______      ______
+                ______       ______      ______      ______      ______      ______                                      ______       ______      ______      ______      ______      ______
+                ______       ______      ______      ______      ______      ______                                      ______       ______      ______      ______      ______      ______
+                                         ______      ______                                                                                       ______       ______
+                                                                 ______      ______                                      ______       ______
+                                                                             ______       ______            ______       ______
+                                                                             ______       ______            ______       ______
+            >;
+        };
+
+        lower_layer {
+            bindings = <
+                &kp DE_CIRC  ______      ______      ______      ______      ______                                      ______       &kp DE_LCBR  &kp DE_LBRC &kp DE_RBRC  &kp DE_RCBR &kp DE_BSLS
+                ______       ______      ______      ______      ______      ______                                      ______       ______       &kp UP      ______       ______      ______
+                ______       &kp HOME    &kp PG_UP   &kp PG_DN   &kp END     ______                                      ______       &kp LEFT     &kp DOWN    &kp RIGHT    ______      ______
+                ______       ______      ______      ______      ______      ______                                      ______       ______       ______      ______       ______      ______
+                                         ______      ______                                                                                        ______      ______
+                                                                 ______      ______                                      ______       ______
+                                                                             ______       ______            ______       ______
+                                                                             ______       ______            ______       ______
+            >;
+        };
+
+        raise_layer {
+            bindings = <
+                &kp F12      &kp F1      &kp F2      &kp F3      &kp F4      &kp F5                                      &kp F6       &kp F7      &kp F8       &kp F9      &kp F10     &kp F11
+                &kp ENTER    ______      ______      ______      ______      &kp DE_LCBR                                 &kp DE_RCBR  ______      &kp INS      ______      ______      &kp C_MUTE
+                ______       &kp LEFT    &kp UP      &kp DOWN    &kp RIGHT   &kp DE_LBRC                                 &kp DE_RBRC  ______      ______       ______      ______      &kp C_VOL_UP
+                ______       ______      ______      ______      ______      ______                                      ______       ______      ______       ______      ______      &kp C_VOL_DN
+                                         ______      ______                                                                                       ______       ______
+                                                                 ______       ______                                     ______       ______
+                                                                              ______       ______           &kp DEL      ______
+                                                                              ______       ______           ______       ______
+            >;
+        };
+
+        meta_layer {
+            bindings = <
+                ______       ______       ______      ______      ______      ______                                      ______       ______       ______      ______       ______      ______
+                ______       &tog DFT_WIN ______      ______      ______      ______                                      ______       ______       ______      ______       ______      ______
+                ______       ______       ______      ______      ______      ______                                      ______       ______       ______      &tog DFT_LNX ______      ______
+                ______       ______       ______      ______      ______      ______                                      ______       &tog DFT_MAC ______      ______       ______      ______
+                                          ______      ______                                                                                        ______      ______
+                                                                  ______      ______                                      ______       ______
+                                                                              ______       ______            ______       ______
+                                                                              ______       ______            ______       ______
+            >;
+        };
+
+        bluetooth_layer {
+            bindings = <
+                ______       &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                                ______       ______       ______      ______       ______      ______
+                ______       ______       ______       ______       ______       ______                                      ______       ______       ______      ______       ______      ______
+                ______       ______       ______       ______       ______       ______                                      ______       ______       ______      ______       ______      ______
+                ______       ______       ______       &bt BT_CLR   ______       ______                                      ______       ______       ______      ______       ______      ______
+                                          ______       ______                                                                                          ______      ______
+                                                                    ______       ______                                      ______       ______
+                                                                                 ______       ______            ______       ______
+                                                                                 ______       ______            ______       ______
+            >;
+        };
+    };
+};

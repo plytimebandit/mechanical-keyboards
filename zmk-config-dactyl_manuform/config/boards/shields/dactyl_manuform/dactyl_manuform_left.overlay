@@ -1,0 +1,19 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include "dactyl_manuform.dtsi"
+
+&kscan0 {
+    // cols from Q7 (hardware pin 7) to Q1 (hardware pin 1) lead to cols from right (5 on the keyboard) to left (ESC on the keyboard)
+    col-gpios
+        = <&shifter 7 (GPIO_ACTIVE_HIGH)>
+        , <&shifter 6 (GPIO_ACTIVE_HIGH)>
+        , <&shifter 5 (GPIO_ACTIVE_HIGH)>
+        , <&shifter 4 (GPIO_ACTIVE_HIGH)>
+        , <&shifter 3 (GPIO_ACTIVE_HIGH)>
+        , <&shifter 2 (GPIO_ACTIVE_HIGH)>
+        ;
+};

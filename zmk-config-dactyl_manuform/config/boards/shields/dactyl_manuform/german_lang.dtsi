@@ -1,0 +1,23 @@
+// https://github.com/qmk/qmk_firmware/blob/master/quantum/keymap_extras/keymap_german.h
+// https://docusaurus.qmk.fm/keycodes/
+// https://zmk.dev/docs/codes
+
+#define DE_Y        Z               // Y
+#define DE_Z        Y               // Z
+#define DE_ADIA     SINGLE_QUOTE    // ä
+#define DE_ODIA     SEMICOLON       // ö
+#define DE_UDIA     LEFT_BRACKET    // ü
+#define DE_SS       MINUS           // ß
+#define DE_MINS     SLASH           // -
+#define DE_ACUT     EQUAL           // ´
+#define DE_PLUS     RIGHT_BRACKET   // +
+#define DE_HASH     NON_US_HASH     // #
+#define DE_LCBR     RA(N7)          // {
+#define DE_LBRC     RA(N8)          // [
+#define DE_RBRC     RA(N9)          // ]
+#define DE_RCBR     RA(N0)          // }
+#define DE_BSLS     RA(DE_SS)       // (backslash)
+#define DE_TILD     RA(DE_PLUS)     // ~
+#define DE_PIPE     RA(NUBS)        // |
+#define DE_CIRC     GRAVE           // ^ (dead)
+

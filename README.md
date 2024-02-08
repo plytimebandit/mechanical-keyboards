@@ -5,6 +5,7 @@ The first attempt was using [QMK](https://qmk.fm/) which ist great (sure it is, 
 
 In a nutshell I can tell: If you're ok with a permanent cable attached go with QMK. If you dislike that idea or want to use it e.g. with your mobile phone or whatever go with ZMK.
 Both have their pros and cons. See the [ZMK README.md](zmk-config-dactyl_manuform/README.md#dual-boot) e.g. for some dual boot specialties.
+The **QMK** build uses **Pro Micros** the **ZMK** build uses **Seeed XIAO BLE** as mCUs and shift registers for pin extension.
 
 That's a picture of the current state:
 

@@ -1,6 +1,6 @@
 # 3D Printing
 
-These are the STL files I used: https://www.thingiverse.com/thing:4372836
+These are the STL files I have used: https://www.thingiverse.com/thing:4372836
 
 Thanks, [Kevin Eckert](https://www.thingiverse.com/scablands), for sharing your Design.
 

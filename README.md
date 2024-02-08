@@ -10,4 +10,4 @@ That's a picture of the current state:
 
 ![Dactyl_Manuform_5x6_zmk_bt](media/Dactyl_Manuform_5x6_zmk_bt.jpg)
 
-In [3d-printing](3d-printing) you can find few more impressions of both versions.
+In [media](media) you can find few more impressions of both versions.

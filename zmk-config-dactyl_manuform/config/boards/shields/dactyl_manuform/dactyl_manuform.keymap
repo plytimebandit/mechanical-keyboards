@@ -117,7 +117,7 @@
         raise_layer {
             bindings = <
                 &kp F12      &kp F1      &kp F2      &kp F3      &kp F4      &kp F5                                      &kp F6       &kp F7      &kp F8       &kp F9      &kp F10     &kp F11
-                &kp ENTER    ______      ______      ______      ______      &kp DE_LCBR                                 &kp DE_RCBR  ______      &kp INS      ______      ______      &kp C_MUTE
+                &kp ENTER    ______      ______      ______      ______      &kp DE_LCBR                                 &kp DE_RCBR  ______      &kp INS      ______      &kp PSCRN   &kp C_MUTE
                 ______       &kp LEFT    &kp UP      &kp DOWN    &kp RIGHT   &kp DE_LBRC                                 &kp DE_RBRC  ______      ______       ______      ______      &kp C_VOL_UP
                 ______       ______      ______      ______      ______      ______                                      ______       ______      ______       ______      ______      &kp C_VOL_DN
                                          ______      ______                                                                                       ______       ______

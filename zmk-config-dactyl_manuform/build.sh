@@ -4,16 +4,17 @@ if [ "$1" = '-c' ]; then
   echo "Cleaning build directory."
   rm -rf "$HOME/dev/repos/zmk/app/build"
 elif [ "$1" = '-f' ]; then
-  echo "Flashing '$2' ..."
+  echo "Flashing '$2' in 10 seconds ..."
+  sleep 10
   if ! ls /media/*/XIAO-SENSE &> /dev/null; then
     echo "Target directory '/media/*/XIAO-SENSE' does not exist. Device mounted?"
     exit 1
   fi
   if [ "$2" = 'left' ]; then
-    cp "$HOME/dev/repos/zmk/app/build/left/zephyr/*.uf2" /media/*/XIAO-SENSE/
+    cp "$HOME/dev/repos/zmk/app/build/left/zephyr/zmk.uf2" /media/*/XIAO-SENSE/
     echo "Done."
   elif [ "$2" = 'right' ]; then
-    cp "$HOME/dev/repos/zmk/app/build/right/zephyr/*.uf2" /media/*/XIAO-SENSE/
+    cp "$HOME/dev/repos/zmk/app/build/right/zephyr/zmk.uf2" /media/*/XIAO-SENSE/
     echo "Done."
   elif [ "$2" = 'reset' ]; then
     cp "$HOME/dev/repos/zmk/app/build/zephyr/*.uf2" /media/*/XIAO-SENSE/

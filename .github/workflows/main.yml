@@ -2,7 +2,7 @@ on: [push, pull_request, workflow_dispatch]
 
 defaults:
   run:
-    working-directory: zmk-config-dactyl_manuform
+    working-directory: ./zmk-config-dactyl_manuform
 
 jobs:
   build:

@@ -1,0 +1,9 @@
+on: [push, pull_request, workflow_dispatch]
+
+defaults:
+  run:
+    working-directory: zmk-config-dactyl_manuform
+
+jobs:
+  build:
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main

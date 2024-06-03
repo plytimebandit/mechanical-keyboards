@@ -2,12 +2,23 @@
 
 This config is used to run a Dactyl Manuform 5x6 split keyboard on two Seeed XIAO BLE controllers with 595 shift registers for pin extension.
 
+
 ## Install
 
 Do all the steps described here (install CMake, Python, DeviceTree compiler aka Ninja, west, Zephyr SDK, ...):
 https://zmk.dev/docs/development/setup
 
 The Build Script requires the ZMK installation to be at `$HOME/dev/repos/zmk`.
+
+
+## Update
+
+To update ZMK follow e.g. these steps: https://zmk.dev/blog/2024/02/09/zephyr-3-5#local-host-development
+
+    git pull        # from inside cloned zmk repo (https://github.com/zmkfirmware/zmk.git)
+    pip3 install --user --upgrade west
+    west update     # from inside cloned zmk repo
+
 
 ## Build and Flash
 
@@ -21,6 +32,7 @@ Parameter `-f` flashes the uf2 file to the XIAO drive. With parameter `-r` the r
     -f (left|right|reset)
                 Flashes the selected binary to the controller
     -r          Build reset binary
+
 
 ## Soldering
 

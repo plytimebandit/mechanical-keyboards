@@ -1,10 +1,5 @@
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: check out repo
-        uses: actions/checkout@v4
-      - name: Use ZMK action
-        uses: ./zmk-config-dactyl_manuform/.github/workflows
+  call-workflow-passing-data:
+    uses: zmk-config-dactyl_manuform/.github/workflows/action.yml@main

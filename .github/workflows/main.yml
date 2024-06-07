@@ -10,7 +10,7 @@ name: Build ZMK
 
 env:
   build_matrix_path: "zmk-config-dactyl_manuform/build.yaml"
-  config_path: "config"
+  config_path: "zmk-config-dactyl_manuform/config"
   fallback_binary: "bin"
   archive_name: "firmware"
   base_dir: "zmk-config-dactyl_manuform"
@@ -101,6 +101,12 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache_name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
+
+      - name: Echo env vars
+        run: |
+          echo "base_dir=${{ env.base_dir }}"
+          echo "config_path=${{ env.config_path }}"
+          echo "GITHUB_WORKSPACE=${GITHUB_WORKSPACE}"
 
       - name: West Init
         working-directory: ${{ env.base_dir }}

@@ -3,6 +3,7 @@
 # - rename variables, e.g. inputs.build_matrix_path --> env.build_matrix_path
 # - set env.base_dir
 # - add subdir to env.build_matrix_path
+# - Step "Prepare variables".run add env.base_dir --> echo "base_dir=${{ env.base_dir }}/${GITHUB_WORKSPACE}" >> $GITHUB_ENV
 
 on: [push, pull_request, workflow_dispatch]
 
@@ -10,7 +11,7 @@ name: Build ZMK
 
 env:
   build_matrix_path: "zmk-config-dactyl_manuform/build.yaml"
-  config_path: "zmk-config-dactyl_manuform/config"
+  config_path: "config"
   fallback_binary: "bin"
   archive_name: "firmware"
   base_dir: "zmk-config-dactyl_manuform"
@@ -64,7 +65,7 @@ jobs:
             mkdir -p "${new_tmp_dir}"
             echo "base_dir=${new_tmp_dir}" >> $GITHUB_ENV
           else
-            echo "base_dir=${GITHUB_WORKSPACE}" >> $GITHUB_ENV
+            echo "base_dir=${{ env.base_dir }}/${GITHUB_WORKSPACE}" >> $GITHUB_ENV
           fi
 
           if [ -n "${snippet}" ]; then

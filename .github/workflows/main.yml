@@ -65,7 +65,7 @@ jobs:
             mkdir -p "${new_tmp_dir}"
             echo "base_dir=${new_tmp_dir}" >> $GITHUB_ENV
           else
-            echo "base_dir=${{ env.base_dir }}/${GITHUB_WORKSPACE}" >> $GITHUB_ENV
+            echo "base_dir=${GITHUB_WORKSPACE}/${{ env.base_dir }}" >> $GITHUB_ENV
           fi
 
           if [ -n "${snippet}" ]; then

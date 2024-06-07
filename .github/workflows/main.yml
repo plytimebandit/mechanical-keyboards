@@ -1,5 +1,5 @@
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
-  build:
-    uses: ./zmk-config-dactyl_manuform/.github/workflows/action.yml@main
+  call-zmk-build:
+    uses: ./zmk-config-dactyl_manuform/.github/workflows/action.yml

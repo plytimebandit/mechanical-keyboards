@@ -1,9 +1,10 @@
 # https://raw.githubusercontent.com/zmkfirmware/zmk/main/.github/workflows/build-user-config.yml
 # - on.workflow_call.inputs --> env
-# - rename variables, e.g. inputs.build_matrix_path --> env.build_matrix_path
+# - rename variables, e.g. inputs.* --> env.*
 # - set env.base_dir
 # - add subdir to env.build_matrix_path
 # - Step "Prepare variables".run add env.base_dir --> echo "base_dir=${{ env.base_dir }}/${GITHUB_WORKSPACE}" >> $GITHUB_ENV
+# - Remove step "Copy config files to isolated temporary directory"
 
 on: [push, pull_request, workflow_dispatch]
 
@@ -95,12 +96,6 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache_name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-
-      - name: Echo env vars
-        run: |
-          echo "base_dir=${{ env.base_dir }}"
-          echo "config_path=${{ env.config_path }}"
-          echo "GITHUB_WORKSPACE=${GITHUB_WORKSPACE}"
 
       - name: West Init
         working-directory: ${{ env.base_dir }}

@@ -78,13 +78,6 @@ jobs:
           echo "display_name=${shield:+$shield - }${board}" >> $GITHUB_ENV
           echo "artifact_name=${artifact_name:-${shield:+$shield-}${board}-zmk}" >> $GITHUB_ENV
 
-      - name: Copy config files to isolated temporary directory
-        run: |
-          if [ "${{ env.base_dir }}" != "${GITHUB_WORKSPACE}" ]; then
-            mkdir "${{ env.base_dir }}/${{ env.config_path }}"
-            cp -R ${{ env.config_path }}/* "${{ env.base_dir }}/${{ env.config_path }}/"
-          fi
-
       - name: Cache west modules
         uses: actions/cache@v4
         continue-on-error: true

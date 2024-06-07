@@ -2,13 +2,14 @@
 # - on.workflow_call.inputs --> env
 # - rename variables, e.g. inputs.build_matrix_path --> env.build_matrix_path
 # - set env.base_dir
+# - add subdir to env.build_matrix_path
 
 on: [push, pull_request, workflow_dispatch]
 
 name: Build ZMK
 
 env:
-  build_matrix_path: "build.yaml"
+  build_matrix_path: "zmk-config-dactyl_manuform/build.yaml"
   config_path: "config"
   fallback_binary: "bin"
   archive_name: "firmware"

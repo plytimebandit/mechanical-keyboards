@@ -9,6 +9,6 @@ The **QMK** build uses **Pro Micros** the **ZMK** build uses **Seeed XIAO BLE** 
 
 That's a picture of the current state:
 
-![Dactyl_Manuform_5x6_zmk_bt](media/Dactyl_Manuform_5x6_zmk_bt.jpg)
+![Dactyl_Manuform_5x6_zmk_bt](media/Dactyl_Manuform_5x6_zmk_bt_SA.png)
 
 In [media](media) you can find few more impressions of both versions.

@@ -1,4 +1,5 @@
 # https://raw.githubusercontent.com/zmkfirmware/zmk/main/.github/workflows/build-user-config.yml
+# BASED ON: https://raw.githubusercontent.com/zmkfirmware/zmk/refs/heads/v0.2-branch/.github/workflows/build-user-config.yml
 # - on.workflow_call.inputs --> env
 # - rename variables, e.g. inputs.* --> env.*
 # - set env.base_dir
@@ -19,7 +20,7 @@ env:
 
 jobs:
   matrix:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     name: Fetch Build Keyboards
     outputs:
       build_matrix: ${{ env.build_matrix }}
@@ -78,6 +79,14 @@ jobs:
           echo "extra_cmake_args=${shield:+-DSHIELD=\"$shield\"}${zmk_load_arg}" >> $GITHUB_ENV
           echo "display_name=${shield:+$shield - }${board}" >> $GITHUB_ENV
           echo "artifact_name=${artifact_name:-${shield:+$shield-}${board}-zmk}" >> $GITHUB_ENV
+          echo "base_dir=${{ env.base_dir }}/${GITHUB_WORKSPACE}" >> $GITHUB_ENV
+
+#      - name: Copy config files to isolated temporary directory
+#        run: |
+#          if [ "${{ env.base_dir }}" != "${GITHUB_WORKSPACE}" ]; then
+#            mkdir "${{ env.base_dir }}/${{ inputs.config_path }}"
+#            cp -R ${{ inputs.config_path }}/* "${{ env.base_dir }}/${{ inputs.config_path }}/"
+#          fi
 
       - name: Cache west modules
         uses: actions/cache@v4

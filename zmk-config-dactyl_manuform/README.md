@@ -48,6 +48,10 @@ I soldered all components to a perfboard. The following image shows the mirrored
 
 ## Troubleshoot
 
+### Bigger Changes
+
+- https://zmk.dev/blog/2025/06/20/pinned-zmk
+
 ### Dual boot / GRUB / LUKS / BIOS / UEFI
 
 Keep in mind that the bluetooth stack is not available at boot. So if you want to

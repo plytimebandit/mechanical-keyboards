@@ -37,14 +37,7 @@
             label = "TAP_DANCE_0";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp DE_TILD>, <&kp DE_BSLS>;
-        };
-        td1: tap_dance_plus_pipe {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_1";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp DE_PLUS>, <&kp DE_PIPE>;
+            bindings = <&kp DE_TILD>, <&kp DE_PIPE>, <&kp DE_BSLS>;
         };
     };
 
@@ -57,7 +50,7 @@
                 &kp TAB      &kp Q       &kp W       &kp E       &kp R       &kp T                                       &kp DE_Z        &kp U        &kp I       &kp O         &kp P       &kp DE_UDIA
                 &kp LSHIFT   &kp A       &kp S       &kp D       &kp F       &kp G                                       &kp H           &kp J        &kp K       &kp L         &kp DE_ODIA &kp DE_ADIA
                 &kp LCTRL    &kp DE_Y    &kp X       &kp C       &kp V       &kp B                                       &kp N           &kp M        &kp COMMA   &kp DOT       &kp DE_MINS &kp RSHIFT
-                                         &kp NUBS    &kp DE_ACUT                                                                                      &td1        &kp DE_HASH
+                                         &kp NUBS    &kp DE_ACUT                                                                                      &kp DE_PLUS &kp DE_HASH
                                                                  &mo RAISE   &kp SPACE                                   &kp ENTER       &mo LOWER
                                                                              &kp LA(TAB) &mo BLUE            &kp BSPC    &td0
                                                                              &kp LALT    &kp LC(LA(RIGHT))   &kp LGUI    &kp RALT
